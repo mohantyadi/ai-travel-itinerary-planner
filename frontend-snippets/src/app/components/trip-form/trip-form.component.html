@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>AI Travel Itinerary Planner</h2>
+
+  <label>Destination
+    <input [(ngModel)]="formData.destination" placeholder="e.g., Goa" />
+  </label>
+
+  <label>Duration (days)
+    <input type="number" min="1" [(ngModel)]="formData.duration" />
+  </label>
+
+  <label>Budget
+    <select [(ngModel)]="formData.budget">
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+  </label>
+
+  <label>Interests (comma separated)
+    <input (change)="formData.interests = ($event.target as HTMLInputElement).value.split(',').map(x=>x.trim()).filter(Boolean)" />
+  </label>
+
+  <button (click)="submit()" [disabled]="loading">Generate</button>
+
+  <div *ngIf="error" style="color:red">{{error}}</div>
+  <div *ngIf="loading">Generating...</div>
+
+  <h3 *ngIf="itineraryMarkdown">Itinerary</h3>
+  <pre *ngIf="itineraryMarkdown">{{itineraryMarkdown}}</pre>
+</div>
