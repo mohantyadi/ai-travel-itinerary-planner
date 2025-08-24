@@ -9,3 +9,8 @@ This project is an **AI-powered travel itinerary planner** that helps users gene
 - REST API endpoints for trips
 
 ## 📂 Project Structure
+ai-travel-itinerary-planner/
+├── backend/ # Server-side code
+├── frontend/ # Client-side code
+├── README.md # Project documentation
+└── .gitignore
